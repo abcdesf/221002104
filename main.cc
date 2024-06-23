@@ -33,11 +33,11 @@ int main() {
     		m_best_move.positions[0].x = m_best_move.positions[1].x = x;
     		m_best_move.positions[0].y = m_best_move.positions[1].y = y;
 		}else{
-			if(i==n-2&&k==1){
+			if(i==n-2&&k==2){
 				m_best_move.positions[0].x = x;
 				m_best_move.positions[0].y = y;
 			}
-			if(i==n-1&&k==1){
+			if(i==n-1&&k==2){
 				m_best_move.positions[1].x = x;
 				m_best_move.positions[1].y = y;
 			}
@@ -47,11 +47,11 @@ int main() {
     for (int i = 0; i < m; ++i) {
         cin >> x >> y;
         board[x][y] = WHITE;
-        if(i==n-2&&k==2){
+        if(i==n-2&&k==1){
 			m_best_move.positions[0].x = x;
 			m_best_move.positions[0].y = y;
 		}
-		if(i==n-1&&k==2){
+		if(i==n-1&&k==1){
 			m_best_move.positions[1].x = x;
 			m_best_move.positions[1].y = y;
 		}
@@ -76,11 +76,18 @@ int main() {
     		m_best_move.positions[1].y = 9;
 		}else if(n==1&&m==0&&board[9][9]!=BLACK){
 			board[9][9]=WHITE;
-    		board[10][8]=WHITE;
-    		m_best_move.positions[0].x = 9;
+			m_best_move.positions[0].x = 9;
     		m_best_move.positions[0].y = 9;
+			if(board[10][8]!=BLACK)
+    		{
+			board[10][8]=WHITE;
     		m_best_move.positions[1].x = 10;
     		m_best_move.positions[1].y = 8;
+    		}else{
+    		board[10][10]=WHITE;
+    		m_best_move.positions[1].x = 10;
+    		m_best_move.positions[1].y = 10;
+			}
 		}
     	else
     	{
